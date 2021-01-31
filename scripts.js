@@ -6,6 +6,7 @@ const Modal = {
       .querySelector('.modal-overlay') // query selector: procurar no documento inteiro
       .classList
       .add('active')
+
   },
   close() {
     // fechar o modal
@@ -21,6 +22,7 @@ const Storage = {
   get() {
     return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
   },
+
   set(transactions) {
     localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
   }
@@ -96,7 +98,7 @@ const DOM = {
       <td class="${CSSclass}">${amount}</td>
       <td class="date">${transaction.date}</td>
       <td>
-        <img onclick="Transaction.remove.(${index})" src="./assets/minus.svg" alt="Remover transação">
+        <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
       </td>
     `
 
@@ -198,7 +200,7 @@ const Form = {
       // modal feche
       Modal.close()
       // atualizar a aplicação
-      App.reload()
+      // App.reload()
       
     } catch (error) {
       alert(error.message)
